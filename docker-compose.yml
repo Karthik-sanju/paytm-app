@@ -7,6 +7,10 @@ services:
     build: ./movie
     ports:
       - "8082:80"
+    volumes:
+      - "/devops"
+    networks:
+      - "karthik"
 
   mobile:
     container_name: mobile-con2
@@ -14,6 +18,10 @@ services:
       #image: mobile
     ports:
       - "8083:80"
+    volumes:
+      - "/mobi_vol"
+    networks:
+      - "mobi_net"
 
   train:
     container_name: train-cont
@@ -21,3 +29,16 @@ services:
       #image: train
     ports:
       - "8084:80"
+    volumes:
+      - "train_vol"
+    networks:
+      - "train_net"
+
+
+networks:
+  karthik:
+    driver: bridge
+  mobi_net:
+    driver: bridge
+  train_net:
+    driver: bridge
