@@ -3,18 +3,21 @@ version: "3"
 services:
   movie:
     container_name: movie-cont
-    image: movie
+      #image: movie
+    build: ./movie
     ports:
       - "8082:80"
 
   mobile:
     container_name: mobile-con2
-    image: mobile
+    build: ./mobile
+      #image: mobile
     ports:
       - "8083:80"
 
   train:
     container_name: train-cont
-    image: train
+    build: ./train 
+      #image: train
     ports:
       - "8084:80"
